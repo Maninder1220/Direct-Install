@@ -25,12 +25,11 @@ sudo apt install -y openjdk-17-jdk
 sudo apt install -y maven
 
 # Install Jenkins Steps
+# Install Jenkins
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo gpg --dearmor -o /usr/share/keyrings/jenkins-keyring.gpg
 
-# # Add Jenkins repository key
-wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-
-# Add Jenkins repository to sources list
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+# Add Jenkins Repo
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 # Update package lists again
 sudo apt update
@@ -40,6 +39,10 @@ sudo apt install -y jenkins
 
 # Update package lists again
 sudo apt update
+
+# Start Jenkins
+sudo service jenkins start
+
 
 # Install Ansible
 sudo apt install -y ansible
