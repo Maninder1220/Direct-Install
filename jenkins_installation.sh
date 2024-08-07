@@ -2,7 +2,7 @@
 sudo apt update
 
 # Install Java 
-sudo apt install openjdk-21-jdk
+sudo apt install -y openjdk-21-jdk
 
 # Update Package Lists
 sudo apt update
@@ -20,7 +20,7 @@ sudo apt update
 
 
 # Install Jenkins
-sudo apt install jenkins
+sudo apt install -y jenkins
 
 # Start n Enable Jenkins Service
 sudo systemctl start jenkins
